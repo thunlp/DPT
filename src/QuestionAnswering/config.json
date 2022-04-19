@@ -1,0 +1,139 @@
+{
+    "dataset_reader": {
+        "type": "tbmse_quoref",
+        "answer_field_generators": {
+            "passage_span_answer": {
+                "type": "span_answer_generator",
+                "text_type": "passage"
+            },
+            "tagged_answer": {
+                "type": "tagged_answer_generator",
+                "ignore_question": true,
+                "labels": {
+                    "I": 1,
+                    "O": 0
+                }
+            }
+        },
+        "answer_generator_names_per_type": {
+            "multiple_span": [
+                "tagged_answer"
+            ],
+            "single_span": [
+                "tagged_answer"
+            ]
+        },
+        "is_training": true,
+        "old_reader_behavior": true,
+        "pickle": {
+            "action": "load",
+            "file_name": "multi_head_IO_electra-large",
+            "path": "pickle/quoref"
+        },
+        "tokenizer": {
+            "type": "huggingface_transformers",
+            "pretrained_model": "google/electra-large-discriminator"
+        }
+    },
+    "iterator": {
+        "type": "basic",
+        "batch_size": 2
+    },
+    "model": {
+        "type": "multi_head",
+        "dataset_name": "quoref",
+        "head_predictor": null,
+        "heads": {
+            "multi_span": {
+                "type": "multi_span_head",
+                "decoding_style": "at_least_one",
+                "ignore_question": true,
+                "labels": {
+                    "I": 1,
+                    "O": 0
+                },
+                "output_layer": {
+                    "activations": [
+                        "relu",
+                        "linear"
+                    ],
+                    "dropout": [
+                        0.1,
+                        0
+                    ],
+                    "hidden_dims": [
+                        1024,
+                        2
+                    ],
+                    "input_dim": 1024,
+                    "num_layers": 2
+                },
+                "prediction_method": "viterbi",
+                "training_style": "soft_em"
+            }
+        },
+        "passage_summary_vector_module": {
+            "activations": "linear",
+            "hidden_dims": 1,
+            "input_dim": 1024,
+            "num_layers": 1
+        },
+        "pretrained_model": "google/electra-large-discriminator",
+        "question_summary_vector_module": {
+            "activations": "linear",
+            "hidden_dims": 1,
+            "input_dim": 1024,
+            "num_layers": 1
+        }
+    },
+    "train_data_path": "quoref_data/quoref_dataset_train.json",
+    "validation_data_path": "quoref_data/quoref_dataset_dev.json",
+    "trainer": {
+        "cuda_device": "0,1,2,3,4,5",
+        "keep_serialized_model_every_num_seconds": 3600,
+        "num_epochs": 10,
+        "optimizer": {
+            "type": "bert_adam",
+            "lr": 5e-06
+        },
+        "patience": 10,
+        "summary_interval": 100,
+        "validation_metric": "+f1"
+    },
+    "validation_dataset_reader": {
+        "type": "tbmse_quoref",
+        "answer_field_generators": {
+            "passage_span_answer": {
+                "type": "span_answer_generator",
+                "text_type": "passage"
+            },
+            "tagged_answer": {
+                "type": "tagged_answer_generator",
+                "ignore_question": true,
+                "labels": {
+                    "I": 1,
+                    "O": 0
+                }
+            }
+        },
+        "answer_generator_names_per_type": {
+            "multiple_span": [
+                "tagged_answer"
+            ],
+            "single_span": [
+                "tagged_answer"
+            ]
+        },
+        "is_training": false,
+        "old_reader_behavior": true,
+        "pickle": {
+            "action": "load",
+            "file_name": "multi_head_IO_electra-large",
+            "path": "pickle/quoref"
+        },
+        "tokenizer": {
+            "type": "huggingface_transformers",
+            "pretrained_model": "google/electra-large-discriminator"
+        }
+    }
+}
