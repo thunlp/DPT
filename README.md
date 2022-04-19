@@ -1,6 +1,6 @@
 # DPT
 
-Source code and dataset for "[Prompt Tuning for Discriminative Pre-trained Language Models](https://openreview.net/pdf?id=eATnJpyojEs)"
+Source code and dataset for Prompt Tuning for Discriminative Pre-trained Language Models"
 
 Recent works have shown promising results of prompt tuning in stimulating pre-trained language models (PLMs) for natural language processing (NLP) tasks. In this work, we present DPT, the first prompt tuning framework for discriminative PLMs, which reformulates NLP tasks into a discriminative language modeling problem. Comprehensive experiments on text classification and question answering show that, compared with vanilla fine-tuning, DPT achieves significantly higher performance, and also prevents the unstable problem in tuning large PLMs in both full-set and low-resource settings.
 
