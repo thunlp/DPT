@@ -66,11 +66,12 @@ allennlp train [config file] -s [training_directory] --include-package src
 
 If you use the code, please cite this paper:
 
-> ```
-> @inproceedings{yao2022prompt,
->     title = {Prompt Tuning for Discriminative Pre-trained Language Models},
->     author = {Yuan, Yao and Bowen, Dong and Ao, Zhang and Zhengyan, Zhang and Ruobing, Xie and Zhiyuan, Liu and Leyu, Lin and Maosong, Sun and Jianyong, Wang},
->     booktitle = {Findings of ACL 2022},
->     year = {2022},
-> }
-> ```
+```
+@inproceedings{yao2022prompt,
+    title = {Prompt Tuning for Discriminative Pre-trained Language Models},
+    author = {Yuan, Yao and Bowen, Dong and Ao, Zhang and Zhengyan, Zhang and Ruobing, Xie and Zhiyuan, Liu and Leyu, Lin and Maosong, Sun and Jianyong, Wang},
+    booktitle = {Findings of ACL 2022},
+    year = {2022},
+}
+```
+
