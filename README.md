@@ -1,6 +1,6 @@
 # DPT
 
-Source code and dataset for ACL 2022 Findings paper "Prompt Tuning for Discriminative Pre-trained Language Models"
+Source code and dataset for ACL 2022 Findings paper [Prompt Tuning for Discriminative Pre-trained Language Models](https://aclanthology.org/2022.findings-acl.273.pdf)
 
 Recent works have shown promising results of prompt tuning in stimulating pre-trained language models (PLMs) for natural language processing (NLP) tasks. In this work, we present DPT, the first prompt tuning framework for discriminative PLMs, which reformulates NLP tasks into a discriminative language modeling problem. Comprehensive experiments on text classification and question answering show that, compared with vanilla fine-tuning, DPT achieves significantly higher performance, and also prevents the unstable problem in tuning large PLMs in both full-set and low-resource settings.
 
